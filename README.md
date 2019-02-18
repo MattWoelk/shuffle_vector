@@ -2,6 +2,10 @@
 
 A rust implementation of a Shuffle Vector, as described by <https://beta.observablehq.com/@jobleonard/shuffle-vectors>.
 
+As items are pushed to the Shuffle Vector, they are swapped with a random element (which could include themself).
+Popping an element from the end therefore gives a random item.
+This is useful when you want to draw from a random bag in O(1).
+
 ```rust
 let mut v = ShuffleVector::new (vec!());
 
