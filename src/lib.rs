@@ -1,12 +1,18 @@
 use rand::prelude::*;
 
-#[derive(Debug)]
-struct ShuffleVector<T> {
+#[derive(Debug, Clone)]
+pub struct ShuffleVector<T> {
     vector: Vec<T>,
 }
 
 impl<T> ShuffleVector<T> {
-    fn push(&mut self, item: T) {
+    pub fn new(v: Vec<T>) -> ShuffleVector<T> {
+        ShuffleVector {
+            vector: v,
+        }
+    }
+
+    pub fn push(&mut self, item: T) {
         // push the item to the end of the vector
         self.vector.push(item);
 
@@ -15,6 +21,10 @@ impl<T> ShuffleVector<T> {
         if highest_index != 0 {
             self.vector.swap(thread_rng().gen_range(0, highest_index), highest_index);
         }
+    }
+
+    pub fn pop(&mut self) -> Option<T> {
+        self.vector.pop()
     }
 }
 
