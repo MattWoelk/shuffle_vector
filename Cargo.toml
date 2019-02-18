@@ -1,0 +1,8 @@
+[package]
+name = "shuffle_vector"
+version = "0.1.0"
+authors = ["MattWoelk <rust@mattwoelk.ca>"]
+edition = "2018"
+
+[dependencies]
+rand = "0.6.5"
